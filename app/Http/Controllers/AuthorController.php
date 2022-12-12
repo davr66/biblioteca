@@ -9,7 +9,7 @@ class AuthorController extends Controller
     public function index()
     {
         $authors = Author::all();
-        return view('authors',['series' => $series],['authors' => $authors]);
+        return view('authors',['authors' => $authors]);
     }
 
     public function cadastro()
@@ -21,8 +21,7 @@ class AuthorController extends Controller
     {
         $author = new Author();
         $author->nome = $request->nome;
-        $author->celular = $request->celular;
-        $author->cod_serie = $request->num_serie;
+        $author->sobrenome = $request->sobrenome;
 
         $author->save();
 
