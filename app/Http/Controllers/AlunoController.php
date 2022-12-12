@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Aluno;
 use Illuminate\Http\Request;
 use App\Models\Serie;
-use App\Models\Cdd;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\DB;
 

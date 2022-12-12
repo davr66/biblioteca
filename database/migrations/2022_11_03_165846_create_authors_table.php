@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('authors', function (Blueprint $table) {
             $table->id('cod_autor');
-            $table->string('nome_autor', 50);
-            $table->string('sobrenome_autor', 50);
+            $table->string('nome', 50);
+            $table->string('sobrenome', 50);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
