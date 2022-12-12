@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('título','Cadastro de Professores')
+@section('título','Edição')
 
 @section('conteudo')
 <style>
@@ -14,17 +14,18 @@
          <div class="col-md-11">
              <div class="card uper">
                  <div class="card-header">
-                    Adicionar Professor
+                    Editar Professor
                  </div>
                  <div class="card-body">
-                     <form method="post" action="{{ route('profs-cad.add') }}">
+                     <form method="post" action="{{ route('profs-update', ['id'=> $profs->cod_prof]) }}">
                          <div class="form-group">
                              @csrf
-                             <label for="nome">Nome:</label>
-                             <input id="nome" name="nome" type="text" class="form-control" />
+                             @method('PUT')
+                             <label for="nome">Nome Completo:</label>
+                             <input id="nome" name="nome" type="text" value="{{ $profs->nome }}"class="form-control" />
                          </div>
                          <br>
-                         <button type="submit" class="btn btn-primary">Adicionar</button>
+                         <input type="submit" name="submit" class="btn btn-success" value="Atualizar">
                      </form>
                  </div>
              </div>
