@@ -25,7 +25,7 @@
                   Mais
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Autores</a></li>
+                <li><a class="dropdown-item" href="{{route('author-index')}}">Autores</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Cadastro de Livros</a></li>
                 <li><a class="dropdown-item" href="#">Cadastro de Autores</a></li>

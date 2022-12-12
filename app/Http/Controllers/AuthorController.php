@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
