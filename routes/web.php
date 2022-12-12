@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\ProfController;
+use App\Http\Controllers\AuthorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Models\Aluno;
@@ -39,11 +40,11 @@ Route::prefix('profs')->group(function(){
     Route::delete('/{id}', [ProfController::class,'destroy'])->name('profs-destroy');
 });
 
-Route::prefix('autor')->group(function(){
-    Route::get('/lista',[AuthorController::class,'index'])->name('autor-index');
-    Route::get('/autor/cadastro',[AuthorController::class,'cadastro'])->name('autor-cad');
-    Route::post('/autor/cadastro',[AuthorController::class,'store'])->name('autor-cad.add');
-    Route::get('/{id}/edit',[AuthorController::class,'edit'])->/*where('id','[0,9]+')->*/name('autor-edit');
-    Route::put('/{id}', [AuthorController::class,'update'])->/*where('id','[0,9]+')->*/name('autor-update');
-    Route::delete('/{id}', [AuthorController::class,'destroy'])->name('autor-destroy');
+Route::prefix('author')->group(function(){
+    Route::get('/lista',[AuthorController::class,'index'])->name('author-index');
+    Route::get('/author/cadastro',[AuthorController::class,'cadastro'])->name('author-cad');
+    Route::post('/author/cadastro',[AuthorController::class,'store'])->name('author-cad.add');
+    Route::get('/{id}/edit',[AuthorController::class,'edit'])->/*where('id','[0,9]+')->*/name('author-edit');
+    Route::put('/{id}', [AuthorController::class,'update'])->/*where('id','[0,9]+')->*/name('author-update');
+    Route::delete('/{id}', [AuthorController::class,'destroy'])->name('author-destroy');
 });
