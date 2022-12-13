@@ -27,7 +27,7 @@ class AlunoController extends Controller
     {
         $aluno = new Aluno();
         $aluno->nome = $request->nome;
-        $aluno->celular = $request->celular;
+        // $aluno->celular = $request->celular;
         $aluno->cod_serie = $request->num_serie;
 
         $aluno->save();

@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('livros', function (Blueprint $table) {
             $table->id('num_reg');
-            $table->timestamp('data_reg')->useCurrent();
-            $table->string('título',100);
+            $table->string('data_reg')->default(date('d/m/Y'));
+            $table->string('titulo',100);
             $table->year('publi');
             $table->string('aquis');
-            $table->integer('ex');
-            $table->integer('vol');
+            $table->integer('ex')->nullable();
+            $table->integer('vol')->nullable();
             $table->string('cod_cdd',11);
             $table->foreign('cod_cdd')->references('cod_cdd')->on('cdds');
             $table->unsignedBigInteger('cod_author');
@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('local',90);
             $table->boolean('disponivel')->default(1);
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

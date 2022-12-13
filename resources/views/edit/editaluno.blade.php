@@ -25,9 +25,9 @@
                              <input id="nome" name="nome" type="text" value="{{ $alunos->nome }}"class="form-control" />
                          </div>
                          <div class="form-group">
-                           <label for="celular">Celular:</label>
+                           <!-- <label for="celular">Celular:</label>
                              <input id="celular" name="celular" value="{{ $alunos->celular }}" type="tel" class="form-control" />
-                         </div>
+                         </div> -->
                          <div class="form-group">
                             <label for="num_serie">Série:</label>
                                 <select name="num_serie" id="num_serie"  class="form-select">

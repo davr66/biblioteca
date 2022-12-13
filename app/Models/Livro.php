@@ -4,6 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
+use Illuminate\Database\Eloquent\Relations\hasOne;
+use App\Models\Author;
+use App\Models\Editora;
+
 
 class Livro extends Model
 {
@@ -14,6 +19,14 @@ class Livro extends Model
     protected $primarykey = 'num_reg';
 
     protected $fillable = [
-        'titulo','publi','aquis','ex','vol','cod_cdd','cod_autor','cod_edi','local','disponivel',
+        'titulo','publi','aquis','ex','vol','cod_cdd','cod_author','cod_edi','local','disponivel',
     ];
+
+    public function authors(){
+        return $this->hasOne(Author::class,'cod_author','cod_author');
+    }
+
+    public function editoras(){
+        return $this->hasOne(Editora::class,'cod_edi','cod_edi');
+    }
 }

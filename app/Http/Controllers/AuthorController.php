@@ -48,8 +48,7 @@ class AuthorController extends Controller
     {
         $data = [
             'nome' => $request->nome,
-            'celular' => $request->celular,
-            'cod_serie' => $request->num_serie,
+            'sobrenome' => $request->sobrenome,
         ];
 
         Author::where('cod_author',$id)->update($data);

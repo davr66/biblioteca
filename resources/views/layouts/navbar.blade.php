@@ -15,11 +15,11 @@
               <a class="nav-link active text-white" aria-current="page" href="{{ route('profs-index') }}">Empréstimos</a>
           </li>
             <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="{{ route('CDD') }}">CDDs</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link active text-white" aria-current="page" href="{{ route('profs-index') }}">Prof</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="{{ route('livros-index') }}">Livros</a>
+          </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Mais
@@ -27,6 +27,7 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{route('authors-index')}}">Autores</a></li>
                 <li><a class="dropdown-item" href="{{route('editoras-index')}}">Editoras</a></li>
+                <li><a class="dropdown-item" href="{{route('CDD')}}">CDDs</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Cadastro de Livros</a></li>
                 <li><a class="dropdown-item" href="#">Cadastro de Autores</a></li>

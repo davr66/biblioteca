@@ -23,10 +23,10 @@
                              <label for="nome">Nome Completo:</label>
                              <input id="nome" name="nome" type="text" class="form-control" />
                          </div>
-                         <div class="form-group">
+                         <!-- <div class="form-group">
                              <label for="celular">Celular:</label>
                              <input id="celular" name="celular" type="tel" class="form-control" />
-                         </div>
+                         </div> -->
                          <div class="form-group">
                             <label for="num_serie">Série:</label>
                                 <select name="num_serie" id="num_serie" class="form-select">
