@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('authors', function (Blueprint $table) {
-            $table->id('cod_autor');
+            $table->id('cod_author');
             $table->string('nome', 50);
-            $table->string('sobrenome', 50);
+            $table->string('sobrenome', 50)->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\ProfController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\EditoraController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Models\Aluno;
@@ -41,10 +42,19 @@ Route::prefix('profs')->group(function(){
 });
 
 Route::prefix('author')->group(function(){
-    Route::get('/lista',[AuthorController::class,'index'])->name('author-index');
-    Route::get('/author/cadastro',[AuthorController::class,'cadastro'])->name('author-cad');
-    Route::post('/author/cadastro',[AuthorController::class,'store'])->name('author-cad.add');
-    Route::get('/{id}/edit',[AuthorController::class,'edit'])->/*where('id','[0,9]+')->*/name('author-edit');
-    Route::put('/{id}', [AuthorController::class,'update'])->/*where('id','[0,9]+')->*/name('author-update');
-    Route::delete('/{id}', [AuthorController::class,'destroy'])->name('author-destroy');
+    Route::get('/lista',[AuthorController::class,'index'])->name('authors-index');
+    Route::get('/author/cadastro',[AuthorController::class,'cadastro'])->name('authors-cad');
+    Route::post('/author/cadastro',[AuthorController::class,'store'])->name('authors-cad.add');
+    Route::get('/{id}/edit',[AuthorController::class,'edit'])->/*where('id','[0,9]+')->*/name('authors-edit');
+    Route::put('/{id}', [AuthorController::class,'update'])->/*where('id','[0,9]+')->*/name('authors-update');
+    Route::delete('/{id}', [AuthorController::class,'destroy'])->name('authors-destroy');
+});
+
+Route::prefix('editora')->group(function(){
+    Route::get('/lista',[EditoraController::class,'index'])->name('editoras-index');
+    Route::get('/editora/cadastro',[EditoraController::class,'cadastro'])->name('editoras-cad');
+    Route::post('/editora/cadastro',[EditoraController::class,'store'])->name('editoras-cad.add');
+    Route::get('/{id}/edit',[EditoraController::class,'edit'])->/*where('id','[0,9]+')->*/name('editoras-edit');
+    Route::put('/{id}', [EditoraController::class,'update'])->/*where('id','[0,9]+')->*/name('editoras-update');
+    Route::delete('/{id}', [EditoraController::class,'destroy'])->name('editoras-destroy');
 });

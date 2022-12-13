@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('editoras', function (Blueprint $table) {
             $table->id('cod_edi');
-            $table->string('nome_edi',40);
+            $table->string('nome',40);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

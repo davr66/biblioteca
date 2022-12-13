@@ -23,8 +23,8 @@ return new class extends Migration
             $table->integer('vol');
             $table->string('cod_cdd',11);
             $table->foreign('cod_cdd')->references('cod_cdd')->on('cdds');
-            $table->unsignedBigInteger('cod_autor');
-            $table->foreign('cod_autor')->references('cod_autor')->on('authors');
+            $table->unsignedBigInteger('cod_author');
+            $table->foreign('cod_author')->references('cod_author')->on('authors');
             $table->unsignedBigInteger('cod_edi');
             $table->foreign('cod_edi')->references('cod_edi')->on('editoras');
             $table->string('local',90);

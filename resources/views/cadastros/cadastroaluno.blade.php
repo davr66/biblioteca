@@ -37,6 +37,9 @@
                          </div>
                          <br>
                          <button type="submit" class="btn btn-primary">Adicionar</button>
+                         <div class="flex justify-content-lg-end">
+                            <a href="{{ route('alunos-index') }}" class="btn btn-primary">Voltar</a>
+                        </div>
                      </form>
                  </div>
              </div>

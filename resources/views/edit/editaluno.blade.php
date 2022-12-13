@@ -38,6 +38,9 @@
                          </div>
                          <br>
                          <input type="submit" name="submit" class="btn btn-success" value="Atualizar">
+                         <div class="flex justify-content-lg-end">
+                            <a href="{{ route('alunos-index') }}" class="btn btn-primary">Voltar</a>
+                        </div>
                      </form>
                  </div>
              </div>
