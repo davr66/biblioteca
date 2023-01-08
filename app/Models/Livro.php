@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Database\Eloquent\Relations\hasOne;
 use App\Models\Author;
 use App\Models\Editora;
+use App\Models\Cdd;
 
 
 class Livro extends Model
@@ -28,5 +29,9 @@ class Livro extends Model
 
     public function editoras(){
         return $this->hasOne(Editora::class,'cod_edi','cod_edi');
+    }
+
+    public function cdds(){
+        return $this->hasOne(Cdd::class,'cod_cdd','cod_cdd');
     }
 }

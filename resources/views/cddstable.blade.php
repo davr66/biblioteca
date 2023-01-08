@@ -1,23 +1,26 @@
 @extends('layouts.main')
 
-@section('título','CDDs')
+@section('título', 'CDDs')
 
 @section('conteudo')
-<div class="row justify-content-center">
-    <div class="col-auto">
-      <table class="table table-responsive" border="1">
-    <tr>
-        <th>Código</th>
-        <th>Assunto</th>
-    </tr>
-@foreach ($cdds as $cdd)
-<tr>
-    <td width='800px'>{{ $cdd->cod_cdd}}</td>
-    <td width='800px'>{{ $cdd->assunto}}</td>
-</tr>
-@endforeach
-    </table>
+    <div class="">
+        {{-- TABELA DE ASSUNTOS --}}
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Assunto</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($cdds as $cdd)
+                    <tr>
+                        <td width='100px'>{{ $cdd->cod_cdd }}</td>
+                        <td width='500px'>{{ $cdd->assunto }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-</div>
 
 @endsection

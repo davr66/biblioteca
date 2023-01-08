@@ -27,12 +27,11 @@ class AlunoController extends Controller
     {
         $aluno = new Aluno();
         $aluno->nome = $request->nome;
-        // $aluno->celular = $request->celular;
         $aluno->cod_serie = $request->num_serie;
 
         $aluno->save();
 
-        return redirect()->route('alunos');
+        return redirect()->route('alunos-index');
 }
 
     public function edit($id)
@@ -43,7 +42,7 @@ class AlunoController extends Controller
             return view('edit.editaluno',['alunos' => $alunos],['series' => $series]);
         }
         else{
-        return redirect()->route('alunos');
+        return redirect()->route('alunos-index');
         }
     }
 
@@ -51,7 +50,6 @@ class AlunoController extends Controller
     {
         $data = [
             'nome' => $request->nome,
-            'celular' => $request->celular,
             'cod_serie' => $request->num_serie,
         ];
 

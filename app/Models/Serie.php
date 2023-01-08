@@ -15,7 +15,7 @@ class Serie extends Model
     protected $primarykey = 'cod_serie';
 
     protected $fillable = [
-        'num_serie','curso'
+        'cod_serie','num_serie','curso'
     ];
 
     public function aluno(){

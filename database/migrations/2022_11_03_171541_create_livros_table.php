@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('livros', function (Blueprint $table) {
             $table->id('num_reg');
-            $table->string('data_reg')->default(date('d/m/Y'));
+            $table->date('data_reg');
             $table->string('titulo',100);
             $table->year('publi');
             $table->string('aquis');
-            $table->integer('ex')->nullable();
-            $table->integer('vol')->nullable();
-            $table->string('cod_cdd',11);
-            $table->foreign('cod_cdd')->references('cod_cdd')->on('cdds');
+            $table->integer('ex')->nullable()->default(null);
+            $table->integer('vol')->nullable()->default(null);
             $table->unsignedBigInteger('cod_author');
             $table->foreign('cod_author')->references('cod_author')->on('authors');
+            $table->string('cod_cdd',11);
+            $table->foreign('cod_cdd')->references('cod_cdd')->on('cdds');
             $table->unsignedBigInteger('cod_edi');
             $table->foreign('cod_edi')->references('cod_edi')->on('editoras');
             $table->string('local',90);

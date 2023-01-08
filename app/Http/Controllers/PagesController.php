@@ -20,11 +20,8 @@ class PagesController extends Controller
         return view('cddstable',['cdds' => $cdds]);
     }
 
-    public function cadastroaluno()
-    {
-        $series = Serie::all();
-        return view('cadastros.cadastroaluno',['series' => $series]);
+    public function sobre(){
+        return view('sobre');
     }
-
 
 }

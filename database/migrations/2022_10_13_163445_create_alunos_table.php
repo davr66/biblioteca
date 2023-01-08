@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('alunos', function (Blueprint $table) {
             $table->id('cod_aluno');
             $table->string('nome', 80);
-            $table->string('celular',20);
             $table->char('cod_serie',2)->nullable();
             $table->foreign('cod_serie')->references('cod_serie')->on('series');
             $table->timestamp('created_at')->useCurrent();

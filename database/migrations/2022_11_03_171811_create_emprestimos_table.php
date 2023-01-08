@@ -19,10 +19,10 @@ return new class extends Migration
             $table->foreign('cod_aluno')->references('cod_aluno')->on('alunos');
             $table->unsignedBigInteger('num_reg');
             $table->foreign('num_reg')->references('num_reg')->on('livros');
-            $table->unsignedBigInteger('cod_prof');
-            $table->foreign('cod_prof')->references('cod_prof')->on('profs');
-            $table->timestamp('data_emp')->useCurrent();
+            $table->date('data_emp');
             $table->date('data_retorno');
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

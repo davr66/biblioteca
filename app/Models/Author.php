@@ -19,7 +19,7 @@ class Author extends Model
     ];
 
     public function livros(){
-        return $this->belongsToMany(Livro::class,'cod_author','cod_author');
+        return $this->belongsToMany(Livro::class,'cod_author','cod_author2','cod_author');
     }
 }
 

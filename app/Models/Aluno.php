@@ -14,8 +14,10 @@ class Aluno extends Model
 
     protected $table = 'alunos';
 
+    protected $primarykey = 'cod_aluno';
+
     protected $fillable = [
-        'nome','celular','cod_serie'
+        'nome','cod_serie'
     ];
 
     public function series(){

@@ -12,10 +12,43 @@ use Illuminate\Support\Facades\DB;
 
 class LivroController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $livros = Livro::all();
-        return view('livros',['livros' => $livros]);
+        $cdds = Cdd::all();
+        $editoras = Editora::all();
+        $authors = Author::all();
+
+        $query = Livro::query();
+
+        //FILTRO DE AUTORES
+        if (!empty($request->cod_author)) {
+            $query->where('cod_author','=',$request->cod_author);
+        }
+        //FILTRO DE TITULO
+        if (!empty($request->titulo)) {
+            $query->where('titulo','like',"%".$request->titulo."%");
+        }
+        //FILTRO DE ASSUNTO
+        if (!empty($request->cod_cdd)) {
+            $query->where('cod_cdd','=',"$request->cod_cdd");
+        }
+        //FILTRO DE DISPONIBILIDADE
+        if(!empty($request->disponivel)){
+            if($request->disponivel == "disponivel"){
+                $query->where('disponivel','=',1);
+            }else{
+                $query->where('disponivel','=',0);
+            }
+        }
+
+        $livros = $query->paginate();
+
+        $data = [
+            'cdds'=> $cdds,
+            'editoras'=> $editoras,
+            'authors'=> $authors];
+
+        return view('livros',$data,['livros' => $livros]);
     }
 
     public function cadastro()
@@ -28,10 +61,13 @@ class LivroController extends Controller
 
     public function store( Request $request )
     {
+        //VERIFICAR SE O LIVRO TEM Nº DE EXEMPLAR
         if(!empty($request->ex)){
-            for ($i=1; $i <= $request->ex; $i++) {
-                if (!empty($request->vol)) {
+            //CADASTRAR DIVERSOS LIVROS AUTOMATICAMENTE
+            if ($request->auto == "1") {
+                for ($i=1; $i <= $request->ex; $i++) {
                     $livro = new Livro();
+                    $livro->data_reg = date('Y-m-d');
                     $livro->titulo = $request->titulo;
                     $livro->cod_author = $request->cod_author;
                     $livro->publi = $request->publi;
@@ -43,52 +79,45 @@ class LivroController extends Controller
                     $livro->local = $request->local;
 
                     $livro->save();
-                }else {
-                    $livro = new Livro();
-                    $livro->titulo = $request->titulo;
-                    $livro->cod_author = $request->cod_author;
-                    $livro->publi = $request->publi;
-                    $livro->aquis = $request->aquis;
-                    $livro->ex = $i;
-                    $livro->vol = null;
-                    $livro->cod_cdd = $request->cod_cdd;
-                    $livro->cod_edi = $request->cod_edi;
-                    $livro->local = $request->local;
 
-                    $livro->save();
                 }
-            }
-        }else{
-            if (!empty($request->vol)) {
+            //CADASTRAR APENAS UM LIVRO COM NUMERO DE EXEMPLAR
+            }else{
                 $livro = new Livro();
+                $livro->data_reg = date('Y-m-d');
                 $livro->titulo = $request->titulo;
                 $livro->cod_author = $request->cod_author;
                 $livro->publi = $request->publi;
                 $livro->aquis = $request->aquis;
-                $livro->ex = null;
+                $livro->ex = $request->ex;
                 $livro->vol = $request->vol;
                 $livro->cod_cdd = $request->cod_cdd;
                 $livro->cod_edi = $request->cod_edi;
                 $livro->local = $request->local;
 
                 $livro->save();
-            }else {
+
+
+
+            }
+            }
+            //CASO O LIVRO NÃO TENHA Nº DE EXEMPLAR
+            else{
                 $livro = new Livro();
+                $livro->data_reg = date('Y-m-d');
                 $livro->titulo = $request->titulo;
                 $livro->cod_author = $request->cod_author;
                 $livro->publi = $request->publi;
                 $livro->aquis = $request->aquis;
-                $livro->ex = null;
-                $livro->vol = null;
+                $livro->ex = $request->ex;
+                $livro->vol = $request->vol;
                 $livro->cod_cdd = $request->cod_cdd;
                 $livro->cod_edi = $request->cod_edi;
                 $livro->local = $request->local;
 
                 $livro->save();
-            }
-        }
 
-        $livro->save();
+            }
 
         return redirect()->route('livros-index');
 }
@@ -118,59 +147,19 @@ class LivroController extends Controller
 
     public function update(Request $request, $id)
     {
-        if (!empty($request->ex)) {
-            if (!empty($request->vol)) {
-                $data = [
-                    'titulo' => $request->titulo,
-                    'cod_author' => $request->cod_author,
-                    'publi' => $request->publi,
-                    'aquis' => $request->aquis,
-                    'ex' => $request->ex,
-                    'vol' => $request->vol,
-                    'cod_cdd' => $request->cod_cdd,
-                    'cod_edi' => $request->cod_edi,
-                    'local' => $request->local
-                ];
-            }else{
-            $data = [
-                'titulo' => $request->titulo,
-                'cod_author' => $request->cod_author,
-                'publi' => $request->publi,
-                'aquis' => $request->aquis,
-                'ex' => $request->ex,
-                'vol' => null,
-                'cod_cdd' => $request->cod_cdd,
-                'cod_edi' => $request->cod_edi,
-                'local' => $request->local
-            ];
-        }
-    }else{
-            if (!empty($request->vol)) {
-                $data = [
-                    'titulo' => $request->titulo,
-                    'cod_author' => $request->cod_author,
-                    'publi' => $request->publi,
-                    'aquis' => $request->aquis,
-                    'ex' => null,
-                    'vol' => $request->vol,
-                    'cod_cdd' => $request->cod_cdd,
-                    'cod_edi' => $request->cod_edi,
-                    'local' => $request->local
-                ];
-            }else{
-                $data = [
-                    'titulo' => $request->titulo,
-                    'cod_author' => $request->cod_author,
-                    'publi' => $request->publi,
-                    'aquis' => $request->aquis,
-                    'ex' => null,
-                    'vol' => null,
-                    'cod_cdd' => $request->cod_cdd,
-                    'cod_edi' => $request->cod_edi,
-                    'local' => $request->local
-                ];
-            }
-    }
+        $data = [
+            'titulo' => $request->titulo,
+            'cod_author' => $request->cod_author,
+            'cod_author2' => $request->cod_author2,
+            'publi' => $request->publi,
+            'aquis' => $request->aquis,
+            'ex' => $request->ex,
+            'vol' => $request->vol,
+            'cod_cdd' => $request->cod_cdd,
+            'cod_edi' => $request->cod_edi,
+            'local' => $request->local
+        ];
+
         livro::where('num_reg',$id)->update($data);
         return redirect()->route('livros-index');
     }
