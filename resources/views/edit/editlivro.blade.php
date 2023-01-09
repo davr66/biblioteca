@@ -79,7 +79,7 @@
                                         <option value="{{ $cdd->cod_cdd }}">{{ $cdd->assunto }}</option>
                                     @endforeach
                                 </select>
-
+                                {{-- SELECT2--}}
                                 <script>
                                     $('#cod_cdd').select2();
                                 </script>

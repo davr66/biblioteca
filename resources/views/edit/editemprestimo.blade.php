@@ -52,7 +52,7 @@
                                         <option value="{{ $livro->num_reg }}">{{ $livro->titulo }}</option>
                                     @endforeach
                                 </select>
-
+                                {{-- SELECT2 --}}
                                 <script>
                                     $('#num_reg').select2();
                                 </script>

@@ -27,6 +27,7 @@
                             {{ $author->sobrenome }}</option>
                     @endforeach
                 </select>
+                {{-- SELECT2 AUTORES --}}
                 <script>
                     $('#cod_author').select2();
                 </script>
@@ -45,7 +46,7 @@
                         <option value="{{ $cdd->cod_cdd }}">{{ $cdd->assunto }}</option>
                     @endforeach
                 </select>
-
+                {{-- SELECT2 ASSUNTOS --}}
                 <script>
                     $('#cod_cdd').select2();
                 </script>

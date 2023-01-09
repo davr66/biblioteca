@@ -28,7 +28,7 @@
                                         <option value="{{ $aluno->cod_aluno }}">{{ $aluno->nome }}</option>
                                     @endforeach
                                 </select>
-
+                                {{-- SELECT2 ALUNOS --}}
                                 <script>
                                     $('#cod_aluno').select2();
                                 </script>
@@ -51,7 +51,7 @@
                                         <option value="{{ $livro->num_reg }}">{{ $livro->titulo }}</option>
                                     @endforeach
                                 </select>
-
+                                {{-- SELECT2 LIVROS --}}
                                 <script>
                                     $('#num_reg').select2();
                                 </script>
