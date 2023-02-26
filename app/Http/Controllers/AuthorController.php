@@ -18,7 +18,7 @@ class AuthorController extends Controller
 
     public function cadastro()
     {
-        return view('cadastros.cadastroauthor',['series' => $series]);
+        return view('cadastros.cadastroauthor');
     }
 
     public function store( Request $request )
@@ -34,10 +34,10 @@ class AuthorController extends Controller
 
     public function edit($id)
     {
-        $series = Serie::all();
-        $authors = author::where('cod_author',$id)->first();
+
+        $authors = Author::where('cod_author',$id)->first();
        if(!empty($authors)){
-            return view('edit.editauthor',['authors' => $authors],['series' => $series]);
+            return view('edit.editauthor',['authors' => $authors],);
         }
         else{
         return redirect()->route('authors');

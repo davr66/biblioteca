@@ -3,16 +3,7 @@
 @section('título', 'Autores')
 
 @section('conteudo')
-    {{-- STYLE TEMPORÁRIO (REMOVER DEPOIS) --}}
-    <style>
-        .uper {
-            margin-top: 40px;
-        }
 
-        .bottom {
-            margin-bottom: 20px;
-        }
-    </style>
     <div class="row justify-content-center">
         <div class="row">
             <div class="">
@@ -24,13 +15,13 @@
                 <a href="{{ route('authors-cad') }}" class="btn btn-primary">Adicionar autor</a>
             </div>
             <table class="table table-responsive">
-                <thead>
+                <thead class="categoria">
                     <tr>
                         <th scope="col">Autor</th>
                         <th scope="col">...</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="cateNome">
                     @foreach ($authors as $author)
                         <tr>
                             <td width="800px">{{ $author->nome }} {{ $author->sobrenome }}</td>

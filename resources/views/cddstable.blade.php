@@ -6,13 +6,13 @@
     <div class="">
         {{-- TABELA DE ASSUNTOS --}}
         <table class="table table-responsive">
-            <thead>
+            <thead class="categoria">
                 <tr>
                     <th scope="col">Código</th>
                     <th scope="col">Assunto</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="cateNome">
                 @foreach ($cdds as $cdd)
                     <tr>
                         <td width='100px'>{{ $cdd->cod_cdd }}</td>

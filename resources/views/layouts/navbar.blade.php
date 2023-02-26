@@ -1,14 +1,10 @@
 <nav class="navbar navbar-expand-lg bg-black">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="{{ asset('img/logotipBibliR.png') }}" alt="Logo" width="40px" height="40px">
+            <img src="{{ asset('img/logotipBibliR.png') }}" alt="Logo" width="40px" height="40px" class="LogoT">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                {{-- INÍCIO --}}
-                <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="{{ route('inicio') }}">Início</a>
-                </li>
                 {{-- ALUNOS --}}
                 <li class="nav-item">
                     <a class="nav-link active text-white" aria-current="page"
@@ -26,19 +22,16 @@
                 </li>
                 {{-- MAIS --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Mais
-                    </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('authors-index') }}">Autores</a></li>
+                        <li><a class="dropdown-item" href="{{ route('profs-index') }}">Profs</a></li>
                         <li><a class="dropdown-item" href="{{ route('editoras-index') }}">Editoras</a></li>
                         <li><a class="dropdown-item" href="{{ route('CDD') }}">CDDs</a></li>
                     </ul>
                 </li>
                 {{-- SOBRE --}}
                 <li class="nav-item">
-                    <a class="nav-link text-white" href='{{ route('sobre') }}'>Sobre</a>
+                    <a class="nav-link text-white" href='https://sites.google.com/view/sobbre-equipe1-multimeiosmg/in%C3%ADcio?authuser=1'>Sobre</a>
                 </li>
             </ul>
         </div>

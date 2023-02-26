@@ -3,16 +3,8 @@
 @section('título', 'Editoras')
 
 @section('conteudo')
-    {{-- STYLE TEMPORÁRIO (REMOVER DEPOIS) --}}
-    <style>
-        .uper {
-            margin-top: 40px;
-        }
 
-        .bottom {
-            margin-bottom: 20px;
-        }
-    </style>
+
     <div class="row justify-content-center">
         <div class="row">
             <div class="">
@@ -25,13 +17,13 @@
             </div>
             {{-- TABELA DE EDITORAS --}}
             <table class="table table-responsive">
-                <thead>
+                <thead class="categoria">
                     <tr>
                         <th scope="col">Editora</th>
                         <th scope="col">...</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="cateNome">
                     @foreach ($editoras as $editora)
                         <tr>
                             <td width="800px">{{ $editora->nome }}</td>

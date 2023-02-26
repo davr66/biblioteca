@@ -3,16 +3,7 @@
 @section('título', 'Empréstimos')
 
 @section('conteudo')
-    {{-- STYLE TEMPORÁRIO (REMOVER DEPOIS) --}}
-    <style>
-        .uper {
-            margin-top: 40px;
-        }
 
-        .bottom {
-            margin-bottom: 20px;
-        }
-    </style>
     <div class="row justify-content-center">
         <div class="row">
             <div class="">
@@ -24,25 +15,29 @@
             </div>
             {{-- TABELA DE EMPRÉSTIMOS --}}
             <table class="table table-responsive">
-                <thead>
+                <thead class="categoria">
                     <tr>
                         <th scope="col">Aluno</th>
                         <th scope="col">Série</th>
                         <th scope="col">Curso</th>
+                        <th scope="col">Celular</th>
                         <th scope="col">Livro</th>
+                        <th scope="col">Responsável</th>
                         <th scope="col">Data de Retorno</th>
                         <th scope="col">Status</th>
                         <th scope="col">...</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="cateNome">
                     @foreach ($emprestimos as $emprestimo)
                         <tr>
-                            <td width="800px">{{ $emprestimo->alunos->nome }}</td>
-                            <td width="800px">{{ $emprestimo->alunos->series->num_serie }}</td>
-                            <td width="800px">{{ $emprestimo->alunos->series->curso }}</td>
-                            <td width="800px">{{ $emprestimo->livros->titulo }}</td>
-                            <td width="800px">{{ date('d/m/y', strtotime($emprestimo->data_retorno)) }}</td>
+                            <td>{{ $emprestimo->alunos->nome }}</td>
+                            <td>{{ $emprestimo->alunos->series->num_serie }}</td>
+                            <td>{{ $emprestimo->alunos->series->curso }}</td>
+                            <td>{{$emprestimo->alunos->celular}}</td>
+                            <td>{{ $emprestimo->livros->titulo }}</td>
+                            <td>{{ $emprestimo->profs->nome }}</td>
+                            <td>{{ date('d/m/y', strtotime($emprestimo->data_retorno)) }}</td>
                             @if (strtotime(date('Y-m-d')) < strtotime($emprestimo->data_retorno))
                                 <td>Normal</td>
                             @elseif (strtotime(date('Y-m-d')) == strtotime($emprestimo->data_retorno))
@@ -52,7 +47,7 @@
                             @endif
 
                             {{-- BOTÕES DE ATUALIZAR/DELETAR --}}
-                            <td width="400px" class="d-flex">
+                            <td class="d-flex">
                                 <!-- ATUALIZAR -->
                                 <a href="{{ route('emprestimos-edit', ['id' => $emprestimo->cod_emp]) }}"
                                     class="btn btn-primary me-2">

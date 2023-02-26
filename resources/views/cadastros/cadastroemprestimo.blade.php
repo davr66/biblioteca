@@ -57,15 +57,28 @@
                                 </script>
                             </div>
                             <br><br>
+
+                            <div class="form-group">
+                                <label for="cod_prof">Responsável:</label>
+                                <select name="cod_prof" id="cod_prof" class="form-select">
+                                    @foreach ($profs as $prof)
+                                        <option value="{{ $prof->cod_prof }}">{{ $prof->nome}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                     </div>
                 </div>
                 <br>
-                {{-- BOTÃO PARA ADICIONAR --}}
-                <button type="submit" class="btn btn-primary">Adicionar</button>
-                {{-- BOTÃO PARA VOLTAR --}}
-                <div class="flex justify-content-lg-end">
-                    <a href="{{ route('emprestimos-index') }}" class="btn btn-primary">Voltar</a>
+
+                <div class="alinhamento">
+                    {{-- BOTÃO PARA ADICIONAR --}}
+                    <button type="submit" class="btn btn-primary">Adicionar</button>
+                    {{-- BOTÃO PARA VOLTAR --}}
+                    <div class="flex justify-content-lg-end">
+                        <a href="{{ route('emprestimos-index') }}" class="btn-red">Voltar</a>
+                    </div>
                 </div>
+
                 </form>
             </div>
         </div>

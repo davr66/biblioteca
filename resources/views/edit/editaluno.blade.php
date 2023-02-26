@@ -2,18 +2,13 @@
 
 @section('título', 'Edição')
 
-{{-- STYLE TEMPORÁRIO (REMOVER DEPOIS) --}}
 @section('conteudo')
-    <style>
-        .uper {
-            margin-top: 40px;
-        }
-    </style>
+
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-11">
-                <div class="card uper">
+                <div class="card-uper">
                     <div class="card-header">
                         Editar aluno
                     </div>
@@ -26,6 +21,11 @@
                                 <label for="nome">Nome Completo:</label>
                                 <input id="nome" name="nome" type="text"
                                     value="{{ $alunos->nome }}"class="form-control" />
+                            </div>
+                            {{-- CELULAR --}}
+                            <div class="form-group">
+                                <label for="celular">Celular:</label>
+                                <input id="celular" name="celular" type="text" value="{{$alunos->celular}}"class="form-control" />
                             </div>
                             {{-- SÉRIE --}}
                             <div class="form-group">
@@ -41,7 +41,7 @@
                             </div>
                             <br>
                             {{-- BOTÃO PARA ATUALIZAR --}}
-                            <input type="submit" name="submit" class="btn btn-success" value="Atualizar">
+                            <input type="submit" name="submit" class="btn btn-primary" value="Atualizar">
                             {{-- BOTÃO PARA VOLTAR --}}
                             <div class="flex justify-content-lg-end">
                                 <a href="{{ route('alunos-index') }}" class="btn btn-primary">Voltar</a>

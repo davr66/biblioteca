@@ -28,4 +28,8 @@ class Emprestimo extends Model
     public function livros(){
         return $this->hasOne(Livro::class,'num_reg','num_reg');
     }
+
+    public function profs(){
+        return $this->hasOne(Prof::class,'cod_prof','cod_prof');
+    }
 }

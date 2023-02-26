@@ -57,7 +57,7 @@
                                 <input id="ex" name="ex" type="number" class="form-control" />
                                 <select name="auto" id="auto" class="form-select">
                                     <option value="1">Automatização ativada</option>
-                                    <option value="0">Automatização desativada</option>
+                                    <option value="0" selected>Automatização desativada</option>
                                 </select>
                             </div>
                             <br>
@@ -105,12 +105,16 @@
                     </div>
                 </div>
                 <br>
-                {{-- BOTÃO PARA ADICIONAR --}}
-                <button type="submit" class="btn btn-primary">Adicionar</button>
-                {{-- BOTÃO PARA VOLTAR --}}
-                <div class="flex justify-content-lg-end">
-                    <a href="{{ route('livros-index') }}" class="btn btn-primary">Voltar</a>
+
+                <div class="alinhamento">
+                    {{-- BOTÃO PARA ADICIONAR --}}
+                    <button type="submit" class="btn btn-primary">Adicionar</button>
+                    {{-- BOTÃO PARA VOLTAR --}}
+                    <div class="flex justify-content-lg-end">
+                        <a href="{{ route('livros-index') }}" class="btn-red">Voltar</a>
+                    </div>
                 </div>
+
                 </form>
             </div>
         </div>

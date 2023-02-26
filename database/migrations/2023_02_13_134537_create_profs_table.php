@@ -13,17 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('alunos', function (Blueprint $table) {
-            $table->id('cod_aluno');
-            $table->string('nome', 80);
-            $table->integer('livros_lidos')->default(0)->nullable();
-            $table->string('celular',18);
-            $table->char('cod_serie',2)->nullable();
-            $table->foreign('cod_serie')->references('cod_serie')->on('series');
+        Schema::create('profs', function (Blueprint $table) {
+            $table->id('cod_prof');
+            $table->string('nome',80);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
-
     }
 
     /**
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alunos');
+        Schema::dropIfExists('profs');
     }
 };

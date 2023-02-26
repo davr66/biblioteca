@@ -3,42 +3,41 @@
 @section('título', 'Alunos')
 
 @section('conteudo')
-    {{-- STYLE TEMPORÁRIO (REMOVER DEPOIS) --}}
-    <style>
-        .uper {
-            margin-top: 40px;
-        }
 
-        .bottom {
-            margin-bottom: 20px;
-        }
-    </style>
     <div class="row justify-content-center">
         <div class="row">
             <div class="">
                 <h2 class="uper bottom">Listagem de Alunos</h2>
+            </div>
+            {{-- BOTÃO PARA RESETAR LIVROS LIDOS --}}
+            <div class="flex justify-content-lg-end">
+                <a href="{{ route('alunos-reset') }}" class="btn btn-primary" onclick="return confirm('Você tem certeza?')">Resetar Livros Lidos</a>
             </div>
             {{-- BOTÃO PARA ADICIONAR ALUNOS --}}
             <div class="flex justify-content-lg-end">
                 <a href="{{ route('alunos-cad') }}" class="btn btn-primary">Adicionar aluno</a>
             </div>
             <table class="table table-responsive">
-                <thead>
+                <thead class="categoria">
                     <tr>
                         <th scope="col">Aluno</th>
                         <th scope="col">Série</th>
                         <th scope="col">Curso</th>
+                        <th scope="col">Celular</th>
+                        <th scope="col">Livros Lidos</th>
                         <th scope="col">...</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="cateNome">
                     @foreach ($alunos as $aluno)
                         <tr>
-                            <td width="800px">{{ $aluno->nome }}</td>
-                            <td width="800px">{{ $aluno->series->num_serie }}</td>
-                            <td width="800px">{{ $aluno->series->curso }}</td>
+                            <td>{{ $aluno->nome }}</td>
+                            <td>{{ $aluno->series->num_serie }}</td>
+                            <td>{{ $aluno->series->curso }}</td>
+                            <td>{{$aluno->celular}}</td>
+                            <td>{{ $aluno->livros_lidos }}</td>
                             {{-- BOTÕES DE ATUALIZAR/DELETAR --}}
-                            <td width="400px" class="d-flex">
+                            <td class="d-flex">
                                 <!-- ATUALIZAR --->
                                 <a href="{{ route('alunos-edit', ['id' => $aluno->cod_aluno]) }}"
                                     class="btn btn-primary me-2">

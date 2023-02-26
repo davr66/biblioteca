@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Livro;
 use App\Models\Emprestimo;
 use App\Models\Aluno;
+use App\Models\Prof;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\DB;
 use DateTime;
@@ -24,10 +25,12 @@ class EmprestimoController extends Controller
     {
         $alunos = Aluno::all();
         $livros = Livro::all();
+        $profs = Prof::all();
 
         $data = [
             'alunos' => $alunos,
-            'livros' => $livros
+            'livros' => $livros,
+            'profs' => $profs
         ];
 
         return view('cadastros.cadastroemprestimo',$data);
@@ -48,6 +51,7 @@ class EmprestimoController extends Controller
             $emprestimo->cod_aluno = $request->cod_aluno;
             $emprestimo->num_reg = $request->num_reg;
             $emprestimo->data_emp = $hoje;
+            $emprestimo->cod_prof = $request->cod_prof;
             $emprestimo->data_retorno = $data_retorno;
 
             $emprestimo->save();
@@ -63,6 +67,7 @@ class EmprestimoController extends Controller
             $emprestimo->cod_aluno = $request->cod_aluno;
             $emprestimo->num_reg = $request->num_reg;
             $emprestimo->data_emp = $hoje;
+            $emprestimo->cod_prof = $request->cod_prof;
             $emprestimo->data_retorno = $data_retorno;
 
             $emprestimo->save();
@@ -81,12 +86,14 @@ class EmprestimoController extends Controller
     {
         $alunos = Aluno::all();
         $livros = Livro::all();
+        $profs = Prof::all();
         $emprestimo = Emprestimo::where('num_reg',$id)->first();
 
        if(!empty($emprestimo)){
         $data = [
             'alunos' => $alunos,
-            'livros' => $livros
+            'livros' => $livros,
+            'profs' => $profs
         ];
 
             return view('edit.editemprestimo',$data);
@@ -111,6 +118,7 @@ class EmprestimoController extends Controller
             'cod_aluno' => $request->cod_aluno,
             'num_reg' => $request->num_reg,
             'data_emp' => $hoje,
+            'cod_prof' => $request->cod_prof,
             'data_retorno' => $data_retorno
         ];
     }else{
@@ -122,6 +130,7 @@ class EmprestimoController extends Controller
             'cod_aluno' => $request->cod_aluno,
             'num_reg' => $request->num_reg,
             'data_emp' => $hoje,
+            'cod_prof' => $request->cod_prof,
             'data_retorno' => $data_retorno
         ];
     }
@@ -136,10 +145,15 @@ class EmprestimoController extends Controller
             'disponivel' => 1
         ];
 
+        $cod_aluno = Emprestimo::where('cod_emp',$id)->first('cod_aluno')->cod_aluno;
         $num_reg = Emprestimo::where('cod_emp',$id)->first('num_reg')->num_reg;
 
         Livro::where('num_reg',$num_reg)->update($data);
+        Aluno::where('cod_aluno',$cod_aluno)->increment('livros_lidos',1);
         Emprestimo::where('cod_emp',$id)->delete();
+
+
+
         return redirect()->route('emprestimos-index');
     }
 }

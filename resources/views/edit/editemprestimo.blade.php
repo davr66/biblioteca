@@ -25,6 +25,7 @@
                             <div class="form-group">
                                 <label for="cod_aluno">Para:</label>
                                 <select name="cod_aluno" id="cod_aluno" class="form-select">
+                                    <option value="{{ $emprestimo->cod_aluno }}">{{ $emprestimo->alunos->nome }}</option>
                                     @foreach ($alunos as $aluno)
                                         <option value="{{ $aluno->cod_aluno }}">{{ $aluno->nome }}</option>
                                     @endforeach
@@ -47,6 +48,7 @@
                             {{-- LIVRO --}}
                             <div class="form-group">
                                 <label for="num_reg">Livro:</label>
+                                <option value="{{ $emprestimo->num_reg }}">{{ $emprestimo->livros->titulo}}</option>
                                 <select name="num_reg" id="num_reg" class="form-select">
                                     @foreach ($livros as $livro)
                                         <option value="{{ $livro->num_reg }}">{{ $livro->titulo }}</option>
@@ -56,8 +58,19 @@
                                 <script>
                                     $('#num_reg').select2();
                                 </script>
-                                <br><br>
                             </div>
+                            <br><br>
+
+                            <div class="form-group">
+                                <label for="cod_prof">Responsável:</label>
+                                <option value="{{ $emprestimo->cod_prof }}">{{ $emprestimo->profs->nome}}</option>
+                                <select name="cod_prof" id="cod_prof" class="form-select">
+                                    @foreach ($profs as $prof)
+                                        <option value="{{ $prof->cod_prof }}">{{ $prof->nome}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                     </div>
                 </div>
             </div>

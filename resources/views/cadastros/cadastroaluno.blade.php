@@ -25,6 +25,11 @@
                                 <label for="nome">Nome Completo:</label>
                                 <input id="nome" name="nome" type="text" class="form-control" />
                             </div>
+                            {{-- CELULAR --}}
+                            <div class="form-group">
+                                <label for="celular">Celular:</label>
+                                <input id="celular" name="celular" type="text" class="form-control" />
+                            </div>
                             {{-- SÉRIE --}}
                             <div class="form-group">
                                 <label for="num_serie">Série:</label>
@@ -37,13 +42,17 @@
                             </div>
                     </div>
                     <br>
+                <div class="alinhamento">
+                    
                     {{-- BOTÃO PARA ADICIONAR --}}
                     <button type="submit" class="btn btn-primary">Adicionar</button>
                     {{-- BOTÃO PARA VOLTAR --}}
                     <div class="flex justify-content-lg-end">
-                        <a href="{{ route('alunos-index') }}" class="btn btn-primary">Voltar</a>
+                        <a href="{{ route('alunos-index') }}" class="btn-red">Voltar</a>
                     </div>
-                    </form>
+                    
+                </div>
+                </form>
                 </div>
             </div>
         </div>

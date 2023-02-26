@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\EditoraController;
+use App\Http\Controllers\ProfController;
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\EmprestimoController;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +28,8 @@ Route::get('/assuntos',[PagesController::class,'cdds'])->name('CDD');//TABELA DE
 
 #ROTAS DAS PÁGS DE ALUNO
 Route::prefix('alunos')->group(function(){
-    Route::get('/lista',[AlunoController::class,'index'])->name('alunos-index'); //TABELA
+    Route::get('/lista',[AlunoController::class,'index'])->name('alunos-index');//TABELA
+    Route::get('/reset',[AlunoController::class,'resetLivros'])->name('alunos-reset'); //RESETAR LIVROS LIDOS
     Route::get('/cadastro',[AlunoController::class,'cadastro'])->name('alunos-cad');//FORM DE CADASTRO
     Route::post('/cadastro',[AlunoController::class,'store'])->name('alunos-cad.add');//INSERÇÃO DE DADOS DO CADASTRO
     Route::get('/{id}/edit',[AlunoController::class,'edit'])->/*where('id','[0,9]+')->*/name('alunos-edit');//EDITAR
@@ -73,4 +75,14 @@ Route::prefix('emprestimo')->group(function(){
     Route::get('/{id}/edit',[EmprestimoController::class,'edit'])->/*where('id','[0,9]+')->*/name('emprestimos-edit');//EDITAR
     Route::put('/{id}', [EmprestimoController::class,'update'])->/*where('id','[0,9]+')->*/name('emprestimos-update');//ATUALIZAR DADOS DA EDIÇÃO
     Route::delete('/{id}', [EmprestimoController::class,'destroy'])->name('emprestimos-destroy');//DELETAR DADOS
+});
+
+#ROTAS DAS PÁGS DE PROFS
+Route::prefix('prof')->group(function(){
+    Route::get('/lista',[ProfController::class,'index'])->name('profs-index');
+    Route::get('/cadastro',[ProfController::class,'cadastro'])->name('profs-cad');
+    Route::post('/cadastro',[ProfController::class,'store'])->name('profs-cad.add');
+    Route::get('/{id}/edit',[ProfController::class,'edit'])->/*where('id','[0,9]+')->*/name('profs-edit');
+    Route::put('/{id}', [ProfController::class,'update'])->/*where('id','[0,9]+')->*/name('profs-update');
+    Route::delete('/{id}', [ProfController::class,'destroy'])->name('profs-destroy');
 });

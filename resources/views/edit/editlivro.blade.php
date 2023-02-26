@@ -109,7 +109,7 @@
                     </div>
                     <br>
                     {{-- BOTÃO DE ATUALIZAR --}}
-                    <input type="submit" name="submit" class="btn btn-success" value="Atualizar">
+                    <input type="submit" name="submit" class="btn btn-" value="Atualizar">
                     {{-- BOTÃO DE VOLTAR --}}
                     <div class="flex justify-content-lg-end">
                         <a href="{{ route('livros-index') }}" class="btn btn-primary">Voltar</a>

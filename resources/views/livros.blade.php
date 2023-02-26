@@ -4,20 +4,11 @@
 
 @section('conteudo')
 
-    {{-- STYLE TEMPORÁRIO (REMOVER DEPOIS) --}}
-    <style>
-        .uper {
-            margin-top: 40px;
-        }
 
-        .bottom {
-            margin-bottom: 20px;
-        }
-    </style>
 
     <div class="">
         <form action="{{ route('livros-index') }}" method="GET">
-            <div class="">
+            <div class="filtro">
 
                 {{-- Filtro de autores --}}
                 <select name="cod_author" id="cod_author">
@@ -71,7 +62,7 @@
         </div>
         {{-- TABELA DE LIVROS --}}
         <table class="table table-responsive">
-            <thead>
+            <thead class="categoria">
                 <tr>
                     <th scope="col">Num. Registro</th>
                     <th scope="col">Data Reg.</th>
@@ -87,7 +78,7 @@
                     <th scope="col">...</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="cateNome">
                 @foreach ($livros as $livro)
                     <tr>
                         <td width="10px">{{ $livro->num_reg }}</td>

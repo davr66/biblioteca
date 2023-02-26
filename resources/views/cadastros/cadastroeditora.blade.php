@@ -27,12 +27,16 @@
                             </div>
                     </div>
                     <br>
-                    {{-- BOTÃO PARA ADICIONAR --}}
-                    <button type="submit" class="btn btn-primary">Adicionar</button>
-                    {{-- BOTÃO PARA VOLTAR --}}
-                    <div class="flex justify-content-lg-end">
-                        <a href="{{ route('editoras-index') }}" class="btn btn-primary">Voltar</a>
+
+                    <div class="alinhamento">
+                        {{-- BOTÃO PARA ADICIONAR --}}
+                        <button type="submit" class="btn btn-primary">Adicionar</button>
+                        {{-- BOTÃO PARA VOLTAR --}}
+                        <div class="flex justify-content-lg-end">
+                            <a href="{{ route('editoras-index') }}" class="btn-red">Voltar</a>
+                        </div>
                     </div>
+                    
                     </form>
                 </div>
             </div>
