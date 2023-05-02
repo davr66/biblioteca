@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('cod_prof')->references('cod_prof')->on('profs');
             $table->date('data_emp');
             $table->date('data_retorno');
+            $table->boolean('status')->default(0);
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->timestamp('created_at')->useCurrent();
         });

@@ -73,6 +73,7 @@ Route::prefix('emprestimo')->group(function(){
     Route::get('/cadastro',[EmprestimoController::class,'cadastro'])->name('emprestimos-cad');//FORM DE CADASTRO
     Route::post('/cadastro',[EmprestimoController::class,'store'])->name('emprestimos-cad.add');//INSERÇÃO DE DADOS DO CADASTRO
     Route::get('/{id}/edit',[EmprestimoController::class,'edit'])->/*where('id','[0,9]+')->*/name('emprestimos-edit');//EDITAR
+    Route::get('/{id}/devolver',[EmprestimoController::class,'devolverLivro'])->/*where('id','[0,9]+')->*/name('emprestimos-devolver');
     Route::put('/{id}', [EmprestimoController::class,'update'])->/*where('id','[0,9]+')->*/name('emprestimos-update');//ATUALIZAR DADOS DA EDIÇÃO
     Route::delete('/{id}', [EmprestimoController::class,'destroy'])->name('emprestimos-destroy');//DELETAR DADOS
 });

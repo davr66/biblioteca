@@ -9,10 +9,6 @@
             <div class="">
                 <h2 class="uper bottom">Listagem de Alunos</h2>
             </div>
-            {{-- BOTÃO PARA RESETAR LIVROS LIDOS --}}
-            <div class="flex justify-content-lg-end">
-                <a href="{{ route('alunos-reset') }}" class="btn btn-primary" onclick="return confirm('Você tem certeza?')">Resetar Livros Lidos</a>
-            </div>
             {{-- BOTÃO PARA ADICIONAR ALUNOS --}}
             <div class="flex justify-content-lg-end">
                 <a href="{{ route('alunos-cad') }}" class="btn btn-primary">Adicionar aluno</a>
@@ -24,7 +20,6 @@
                         <th scope="col">Série</th>
                         <th scope="col">Curso</th>
                         <th scope="col">Celular</th>
-                        <th scope="col">Livros Lidos</th>
                         <th scope="col">...</th>
                     </tr>
                 </thead>
@@ -34,8 +29,7 @@
                             <td>{{ $aluno->nome }}</td>
                             <td>{{ $aluno->series->num_serie }}</td>
                             <td>{{ $aluno->series->curso }}</td>
-                            <td>{{$aluno->celular}}</td>
-                            <td>{{ $aluno->livros_lidos }}</td>
+                            <td>{{ $aluno->celular }}</td>
                             {{-- BOTÕES DE ATUALIZAR/DELETAR --}}
                             <td class="d-flex">
                                 <!-- ATUALIZAR --->

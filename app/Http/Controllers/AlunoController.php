@@ -13,7 +13,7 @@ class AlunoController extends Controller
     public function index()
     {
         $series = Serie::all();
-        $alunos = Aluno::orderByDesc('livros_lidos')->get();
+        $alunos = Aluno::all();
         return view('alunos',['series' => $series],['alunos' => $alunos]);
     }
 
@@ -59,16 +59,6 @@ class AlunoController extends Controller
         return redirect()->route('alunos-index');
     }
 
-    public function resetLivros(){
-        $data = [
-            'livros_lidos' => 0
-        ];
-
-        DB::table('alunos')->update($data);
-        $alunos = Aluno::orderByDesc('livros_lidos')->get();
-
-        return view('alunos',['alunos'=>$alunos]);
-    }
 
 
     public function destroy($id)

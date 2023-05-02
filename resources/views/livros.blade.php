@@ -64,7 +64,7 @@
         <table class="table table-responsive">
             <thead class="categoria">
                 <tr>
-                    <th scope="col">Num. Registro</th>
+                    <th width="10px" scope="col">Num. Reg.</th>
                     <th scope="col">Data Reg.</th>
                     <th scope="col">Título</th>
                     <th scope="col">Autor</th>
@@ -73,8 +73,7 @@
                     <th scope="col">Editora</th>
                     <th scope="col">Ex.</th>
                     <th scope="col">Vol.</th>
-                    <th scope="col">CDD</th>
-                    <th scope="col">Disponível</th>
+                    <th scope="col">Disponibilidade</th>
                     <th scope="col">...</th>
                 </tr>
             </thead>
@@ -90,11 +89,12 @@
                         <td>{{ $livro->editoras->nome }}</td>
                         <td>{{ $livro->ex }}</td>
                         <td>{{ $livro->vol }}</td>
-                        <td>{{ $livro->cod_cdd }}</td>
                         @if ($livro->disponivel)
-                            <td>Sim</td>
+                            <td width="200px">Disponível</td>
                         @else
-                            <td>Não</td>
+                            <td width="25%" style="font-size: 15px;">Com: {{ $livro->emprestimos->alunos->nome }},
+                                {{ $livro->emprestimos->alunos->series->num_serie }} -
+                                {{ $livro->emprestimos->alunos->series->curso }}</td>
                         @endif
                         {{-- BOTÕES DE ATUALIZAR/DELETAR --}}
                         <td class="d-flex">

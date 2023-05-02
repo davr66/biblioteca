@@ -29,7 +29,7 @@
 }
 /*Esses 3 primeiros muda a direção vertical para horizontal da lista*/
 .container-fluid {
-    display: flex; 
+    display: flex;
     margin-top: 0px;
     background-color: var(--corMenu);
 }
@@ -103,12 +103,12 @@ tr{
     width: 100%;
 }
 tr td{
-    width: 25%;
-    height: 60px;
+    width: 35%;
+    height: 130px;
     vertical-align: middle;
     border: 1px  solid var(--corBordaTable);
-    
-    
+
+
     border-right: 0;
     display: flex;
     align-items: center;
@@ -117,7 +117,7 @@ tr td{
 
 
 th{
-    width: 25%;
+    width: 35%;
 }
 
 
@@ -298,5 +298,5 @@ svg.bi.bi-pencil:hover {
     font-family: 'Unbounded', cursive;
     font-weight: 300;
     font-style: normal;
-    
+
 }

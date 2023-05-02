@@ -18,7 +18,7 @@
                         Editar Empréstimo
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('emprestimos-update', ['id' => $emprestimos->cod_emp]) }}">
+                        <form method="post" action="{{ route('emprestimos-update', ['id' => $emprestimo->cod_emp]) }}">
                             @csrf
                             @method('PUT')
                             {{-- ALUNO --}}
@@ -48,7 +48,7 @@
                             {{-- LIVRO --}}
                             <div class="form-group">
                                 <label for="num_reg">Livro:</label>
-                                <option value="{{ $emprestimo->num_reg }}">{{ $emprestimo->livros->titulo}}</option>
+                                <option value="{{ $emprestimo->num_reg }}">{{ $emprestimo->livros->titulo }}</option>
                                 <select name="num_reg" id="num_reg" class="form-select">
                                     @foreach ($livros as $livro)
                                         <option value="{{ $livro->num_reg }}">{{ $livro->titulo }}</option>
@@ -63,10 +63,10 @@
 
                             <div class="form-group">
                                 <label for="cod_prof">Responsável:</label>
-                                <option value="{{ $emprestimo->cod_prof }}">{{ $emprestimo->profs->nome}}</option>
+                                <option value="{{ $emprestimo->cod_prof }}">{{ $emprestimo->profs->nome }}</option>
                                 <select name="cod_prof" id="cod_prof" class="form-select">
                                     @foreach ($profs as $prof)
-                                        <option value="{{ $prof->cod_prof }}">{{ $prof->nome}}</option>
+                                        <option value="{{ $prof->cod_prof }}">{{ $prof->nome }}</option>
                                     @endforeach
                                 </select>
                             </div>

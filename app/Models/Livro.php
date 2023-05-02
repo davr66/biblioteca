@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\hasOne;
 use App\Models\Author;
 use App\Models\Editora;
 use App\Models\Cdd;
+use App\Models\Emprestimo;
 
 
 class Livro extends Model
@@ -33,5 +34,9 @@ class Livro extends Model
 
     public function cdds(){
         return $this->hasOne(Cdd::class,'cod_cdd','cod_cdd');
+    }
+
+    public function emprestimos(){
+        return $this->hasOne(Emprestimo::class,'num_reg','num_reg');
     }
 }

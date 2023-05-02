@@ -28,7 +28,7 @@
                             {{-- CELULAR --}}
                             <div class="form-group">
                                 <label for="celular">Celular:</label>
-                                <input id="celular" name="celular" type="text" class="form-control" />
+                                <input id="celular" maxLength="15" name="celular" type="text" class="form-control" />
                             </div>
                             {{-- SÉRIE --}}
                             <div class="form-group">
@@ -42,17 +42,17 @@
                             </div>
                     </div>
                     <br>
-                <div class="alinhamento">
-                    
-                    {{-- BOTÃO PARA ADICIONAR --}}
-                    <button type="submit" class="btn btn-primary">Adicionar</button>
-                    {{-- BOTÃO PARA VOLTAR --}}
-                    <div class="flex justify-content-lg-end">
-                        <a href="{{ route('alunos-index') }}" class="btn-red">Voltar</a>
+                    <div class="alinhamento">
+
+                        {{-- BOTÃO PARA ADICIONAR --}}
+                        <button type="submit" class="btn btn-primary">Adicionar</button>
+                        {{-- BOTÃO PARA VOLTAR --}}
+                        <div class="flex justify-content-lg-end">
+                            <a href="{{ route('alunos-index') }}" class="btn-red">Voltar</a>
+                        </div>
+
                     </div>
-                    
-                </div>
-                </form>
+                    </form>
                 </div>
             </div>
         </div>
