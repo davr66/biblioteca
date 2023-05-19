@@ -90,7 +90,7 @@
                                 <td>OK</td>
                             @else
                                 @if (strtotime(date('Y-m-d')) < strtotime($emprestimo->data_retorno))
-                                    <td>{{ $emprestimo->status }}Normal</td>
+                                    <td>Normal</td>
                                 @elseif (strtotime(date('Y-m-d')) == strtotime($emprestimo->data_retorno))
                                     <td>Retorna Hoje</td>
                                 @elseif (strtotime(date('Y-m-d')) > strtotime($emprestimo->data_retorno))

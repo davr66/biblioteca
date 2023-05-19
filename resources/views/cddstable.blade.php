@@ -3,7 +3,7 @@
 @section('título', 'CDDs')
 
 @section('conteudo')
-    <div class="">
+    <div class="row justify-content-center">
         {{-- TABELA DE ASSUNTOS --}}
         <table class="table table-responsive">
             <thead class="categoria">
@@ -15,8 +15,8 @@
             <tbody class="cateNome">
                 @foreach ($cdds as $cdd)
                     <tr>
-                        <td width='100px'>{{ $cdd->cod_cdd }}</td>
-                        <td width='500px'>{{ $cdd->assunto }}</td>
+                        <td>{{ $cdd->cod_cdd }}</td>
+                        <td>{{ $cdd->assunto }}</td>
                     </tr>
                 @endforeach
             </tbody>
